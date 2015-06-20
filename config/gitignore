@@ -1,0 +1,68 @@
+# Linux
+*.swp
+*~
+nohup.out
+
+# Compiled source
+*.pyc
+*.pyo
+*.o
+*.class
+*.dll
+*.exe
+*.so
+*.a
+
+# Archive
+*.7z
+*.gz
+*.xz
+*.tgz
+*.tar
+*.iso
+*.jar
+*.rar
+*.bzip
+*.zip
+
+# Log and databases
+*.log
+*.sqlite
+
+# SVN
+.svn/
+
+# Python
+__pycache__/
+*.egg-info/
+*.egg
+.coverage
+.tox
+.python-version
+
+# Ruby
+
+.sass-cache
+
+# Eclipse
+.project
+.pydevproject
+.settings
+
+# history
+.netrwhist
+
+# ctags
+tags
+
+
+# build folder
+target
+_build
+_static
+*.pid
+*.sqlite*
+bower_components
+
+# openssl
+.srl

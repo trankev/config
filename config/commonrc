@@ -1,0 +1,319 @@
+#!/usr/bin/sh
+#
+# ~/.commonrc
+#
+
+
+#====================================================================
+# sourcing
+#====================================================================
+
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+   source /usr/local/bin/virtualenvwrapper.sh
+fi
+if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
+   source /usr/bin/virtualenvwrapper.sh
+fi
+
+#====================================================================
+# environment
+#====================================================================
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "${HOME}/.local/bin" ] ; then
+    PATH="${HOME}/.local/bin:${PATH}"
+fi
+PATH="${HOME}/config/scripts:${PATH}"
+if [ -d "${HOME}/.local/lib/python" ] ; then
+    PYTHONPATH="${HOME}/.local/lib/python:${PYTHONPATH}"
+fi
+
+# Set default editor
+if [[ -x $(which vim) ]]
+then
+  export EDITOR="vim"
+  export USE_EDITOR=${EDITOR}
+  export VISUAL=${EDITOR}
+fi
+
+PROJECTPATH="${HOME}/.local/lib/python:${HOME}/.local/lib"
+PROJECTPATH="${PROJECTPATH}:${HOME}/workspace/*:${HOME}/workspace"
+PROJECTPATH="${PROJECTPATH}:/usr/local/lib:/usr/local/share"
+PROJECTPATH="${PROJECTPATH}:/usr/lib/python*/site-packages:/usr/lib/python*:/usr/local:/usr/share:/usr/lib"
+PROJECTPATH="${PROJECTPATH}:/lib:/var/*:/etc:/srv:/opt"
+
+
+ulimit -c unlimited
+
+
+#====================================================================
+# functions
+#====================================================================
+
+# up 3 -> ../../../
+function up {
+  count=1
+  [ -z $1 ] || count=$1
+  dir=""
+  for i in `seq ${count}`; do
+    dir="${dir}../"
+  done
+  echo ${dir}
+}
+
+export -f up >/dev/null
+
+function .. {
+  result=$(up $@)
+  cd ${result}
+}
+
+export -f .. >/dev/null
+
+# goes to root of a svn or git project, or root of a project given its
+# folder, or to home
+function proot {
+  dest=""
+
+  # svn project ?
+  hash svn 2>/dev/null && root=$(svn info 2>/dev/null | sed -n 2p | cut -d':' -f 2 | tr -d ' ') && [[ -e ${root} ]] && dest=${root}
+
+  # git project ?
+  [[ ${dest} == "" ]] && hash git 2>/dev/null && root="$(git rev-parse --show-cdup 2>/dev/null)." && dest=${root}
+
+  # particular root folder
+  filemark="debian:.pc:.bzr:.hg:Makefile:setup.py:README"
+  filemark="${filemark}:manage.py:requirements.txt"
+  current=$(pwd)
+  parent=$(dirname ${current})
+  while [[ ${current} != $(dirname ${current}) || ${current} == ${HOME} ]]; do
+    for folder in $(echo ${filemark} | tr ':' '\n'); do
+      if [[ -e ${current}/${folder} ]]; then
+        dest=${current}
+        break
+      fi
+      current=$(dirname ${current})
+    done
+  done
+
+  # particular tree folder
+  recursefile="CVS:.svn"
+  for folder in $(echo ${recursefile} | tr ':' '\n'); do
+    parent="."
+    while [[ -e "${parent}/${folder}" ]]; do
+      dest=${parent}
+      parent="${parent}/.."
+    done
+    [[ ${dest} != "" ]] && break
+  done
+
+  # common parent folder
+  if [[ ${dest} == "" ]]; then
+    # projectpath
+    projectpath=${CDPATH}
+
+    current_dir=$(pwd)
+    for folder in $(echo ${projectpath} | tr ":" "\n"); do
+      if eval "[[ ${current_dir} == ${folder}/* ]]"; then
+        folder=${folder/\*/[^\/]*}
+        dest=$(echo ${current_dir} | sed -e "s#${folder}/\([^/]\+\).*#${folder}/\1#")
+        dest=$(eval "echo $dest")
+        break
+      fi
+    done
+  fi
+
+  [[ ${dest} == "" ]] && dest=${HOME}
+
+  if hash realpath 2>/dev/null ; then
+    echo $(realpath ${dest})
+  else
+    echo ${dest}
+  fi
+}
+
+export -f proot >/dev/null
+
+function bd {
+  cd $(pwd | sed 's#\(.*/'$1'[^/]*/\).*#\1#')
+}
+
+function install {
+   hash apt-get 2>/dev/null && sudo apt-get install $@ && return
+   hash pacman-color 2>/dev/null && sudo pacman-color -S $@ && return
+   hash pacman 2>/dev/null && sudo pacman -S $@ && return
+   hash yaourt 2>/dev/null && yaourt --noconfirm $@ && return
+   hash yum 2>/dev/null && sudo yum install $@ && return
+   echo "No package manager found"
+   return 1
+}
+
+function update {
+   hash apt-get 2>/dev/null && sudo apt-get update && sudo apt-get dist-upgrade $@ && sudo apt-get clean && return
+   hash pacman-color 2>/dev/null && sudo pacman-color -Syu $@ && return
+   hash pacman 2>/dev/null && sudo pacman -Syu $@ && return
+   hash yum 2>/dev/null && sudo yum upgrade $@ && return
+   echo "No package manager found"
+   return 1
+}
+
+function uninstall {
+   hash apt-get 2>/dev/null
+   [ $? -eq 0 ] && sudo apt-get autoremove --purge $@ && return
+   hash pacman-color 2>/dev/null
+   [ $? -eq 0 ] && sudo pacman-color -Rsn $(pacman -Qqdt) $@ && return
+   hash pacman 2>/dev/null
+   [ $? -eq 0 ] && sudo pacman -Rsn $(pacman -Qqdt) $@ && return
+   hash yum 2>/dev/null
+   [ $? -eq 0 ] && sudo yum erase $@ && return
+   echo "No package manager found"
+   return 1
+}
+
+function search {
+   hash apt-cache 2>/dev/null
+   [ $? -eq 0 ] && sudo apt-cache search $@ && return
+}
+
+function package {
+   hash \pkgfile 2>/dev/null
+   [ $? -eq 0 ] && \pkgfile $@ && return
+   hash dpkg 2>/dev/null
+   [ $? -eq 0 ] && dpkg -S $@ && return
+}
+
+function extract {     # Handy Extract Program.
+  if [ -f $1 ] ; then
+    tarext='.(tgz|tbz2|tbz|txz|tar(.(bz2|gz|xz))?)'
+    zipext='.(zip|nar)'
+    case $1 in
+      *.tgz|*.tbz2|*.tbz|*.txz|*.tar|.tar.bz2|.tar.gz|.tar.xz )
+        rootfilecount=$(tar -tf $1 | cut -d / -f 1 | sort | uniq | wc -l)
+        if [ $rootfilecount -gt 1 ]; then
+          TMP=$(echo $1 | sed -r 's#'$tarext'##g')
+          mkdir $TMP
+          tar -xvf $1 -C $TMP
+        else
+          tar -xvf $1
+        fi
+        ;;
+      *.bz2) bunzip2 $1 ;;
+      *.rar) unrar x $1 ;;
+      *.gz) gunzip $1 ;;
+      *.zip|*.nar )
+        rootfilecount=$(unzip -l $1 | head -n -2 | tail -n +4 | awk '{ print $4 }' | cut -d '/' -f 1 | sort | uniq | wc -l)
+        if [ $rootfilecount -gt 1 ]; then
+          TMP=$(echo $1 | sed -r 's#'$zipext'##g')
+          mkdir $TMP
+          unzip $1 -d $TMP
+        else
+          unzip $1
+        fi
+        ;;
+      *.Z) uncompress $1 ;;
+      *.7z) 7z x $1 ;;
+      *.deb)
+        TMP=${1/.deb/}
+        mkdir -p ${TMP}/debian
+        dpkg -e $1 ${TMP}/debian
+        dpkg -x $1 ${TMP}
+      ;;
+      *) echo "'$1' cannot be extracted via >extract<" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+#====================================================================
+# aliases
+#====================================================================
+
+# ls
+
+alias ls="ls --color=auto"
+alias ll="ls -lhF --group-directories-first"
+alias la="ls -A --group-directories-first"
+alias lla="ll -A"
+alias lt="ls -lrth"
+alias lta="lt -A"
+
+# grep
+
+GREP_ARGS="-I --color=auto --exclude-dir=.svn --exclude-dir=.git"
+alias grep="grep ${GREP_ARGS}"
+alias egrep="egrep ${GREP_ARGS}"
+alias fgrep="fgrep ${GREP_ARGS}"
+alias zgrep="fgrep ${GREP_ARGS}"
+alias grec="grep ${GREP_ARGS} --color=always"
+alias egrec="grep ${GREP_ARGS} --color=always"
+alias fgrec="grep ${GREP_ARGS} --color=always"
+alias zgrec="grep ${GREP_ARGS} --color=always"
+
+# common commands
+
+alias less="less --RAW-CONTROL-CHARS --quiet"
+alias mkdir="mkdir --parents"
+alias du="du -h"
+alias duu="du -skh *"
+alias df="df -h"
+
+# archive
+
+alias dotar="tar pczf"
+alias untar="tar xvf"
+alias seetar="tar tvf"
+alias dtrx="dtrx -r --one here"
+
+# functions
+
+alias upgrade="update"
+alias cdd='cd $(proot)'
+
+# vim
+
+alias vims="vim --servername VIMSERVER"
+alias vimc="vim --servername VIMSERVER --remote-tab"
+
+# applications
+
+alias sudo="sudo -E "
+alias diff="diff -ur"
+alias tailf="tail -f"
+alias lns="ln -s"
+alias cp="cp -r"
+alias tree="tree -C -I '*.pyc|__pycache__'"
+alias tmux="tmux -2"
+
+alias svnrmall="svn st -s | \egrep '^!' | awk '{for(i=1;i<=NF-1;i++)\$i=\$(i+1);NF-=1;print}' | xargs svn rm"
+alias svnaddall="svn st -s | \egrep '^?' | awk '{for(i=1;i<=NF-1;i++)\$i=\$(i+1);NF-=1;print}' | xargs svn add"
+
+alias fmake='make -j $(nproc)'
+alias scp="scp -pr"
+alias rsync="rsync -avz"
+alias vi="vim"
+alias perl="perl -w"
+alias shutdown="shutdown -h"
+alias nw="netstat -tpln"
+alias process="ps -weo user,group,pid,%cpu,%mem,stat,time,args"
+
+alias ldapsearch="ldapsearch -LLL"
+alias ldapmodify="ldapmodify -c"
+
+
+#====================================================================
+# specificities
+#====================================================================
+
+if [ -f ~/.uncommonrc ]; then
+   source ~/.uncommonrc   # --> Read /etc/bashrc, if present.
+fi
+
+if [ -d ~/.pyenv ]; then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init  -)"
+  eval "$(pyenv virtualenv-init  -)"
+fi
+
+

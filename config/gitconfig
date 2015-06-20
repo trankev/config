@@ -1,0 +1,62 @@
+[core]
+editor = vim
+autocrlf = input
+whitespace = trailing-spaces,space-before-tab
+excludesfile = ~/.gitignore
+	sharedRepository = group
+
+[color]
+branch=auto
+diff=auto
+interactive=auto
+status=auto
+
+[format]
+pretty=oneline # display one line per log entry
+
+[alias]
+st = status --short --branch
+ci = commit
+co = checkout
+cl = clone
+br = branch -avv
+difff = diff --staged
+ad = add -A
+addd = add --patch
+sub = submodule
+subup = submodule update --init --recursive
+subpull = submodule foreach git pull origin master --recurse-submodules=yes
+subco = submodule foreach git checkout master
+lg = log -n 15 --abbrev-commit --no-merges
+lgg = log --graph --pretty=format:'%Cred%h%Creset %s%Cred%d%Creset %Cgreen(%cr by %cN)%Creset'
+re = remote -vv
+amend = commit --amend -C HEAD
+rc = rebase --continue
+rs = rebase --skip
+ra = rebase --abort
+
+[user]
+logallrefupdates = true
+
+[help]
+autocorrect = 1
+
+[diff]
+renames = copies # detects file moving and copying
+mnemonicprefix = true
+
+[branch]
+autosetupmerge = always # auto track remote branch
+autosetuprebase = always # auto track remote branch
+
+[push]
+default = tracking # defaults push to upstream branch
+
+[rerere]
+enabled = true # record resolved conflicts hunks
+
+[fetch]
+    recurseSubmodules = true
+
+[http]
+sslVerify = false

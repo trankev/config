@@ -1,0 +1,4 @@
+*.pyc
+uncommonrc
+data/todo.txt-cli/*
+config/config-ipython/profile_default/db/dhist
