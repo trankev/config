@@ -29,12 +29,15 @@ if [ -d "${HOME}/.local/lib/python" ] ; then
 fi
 
 # Set default editor
-if [[ -x $(which vim) ]]
-then
+if [[ -x $(which nvim) ]]; then
+  export EDITOR="nvim"
+elif [[ -x $(which vim) ]] ; then
   export EDITOR="vim"
-  export USE_EDITOR=${EDITOR}
-  export VISUAL=${EDITOR}
+else
+  export EDITOR="vi"
 fi
+export USE_EDITOR=${EDITOR}
+export VISUAL=${EDITOR}
 
 PROJECTPATH="${HOME}/.local/lib/python:${HOME}/.local/lib"
 PROJECTPATH="${PROJECTPATH}:${HOME}/workspace/*:${HOME}/workspace"
@@ -272,8 +275,10 @@ alias cdd='cd $(proot)'
 
 # vim
 
-alias vims="vim --servername VIMSERVER"
-alias vimc="vim --servername VIMSERVER --remote-tab"
+alias vims="${EDITOR} --servername VIMSERVER"
+alias vimc="${EDITOR} --servername VIMSERVER --remote-tab"
+alias vi="${EDITOR}"
+alias vim="${EDITOR}"
 
 # applications
 
@@ -291,7 +296,6 @@ alias svnaddall="svn st -s | \egrep '^?' | awk '{for(i=1;i<=NF-1;i++)\$i=\$(i+1)
 alias fmake='make -j $(nproc)'
 alias scp="scp -pr"
 alias rsync="rsync -avz"
-alias vi="vim"
 alias perl="perl -w"
 alias shutdown="shutdown -h"
 alias nw="netstat -tpln"

@@ -36,6 +36,7 @@ nohup.out
 __pycache__/
 *.egg-info/
 *.egg
+.eggs/
 .coverage
 .tox
 .python-version

@@ -2,6 +2,10 @@
 set nocompatible
 filetype off
 
+
+let g:python_host_prog='/usr/bin/python2'
+let g:ycm_server_keep_logfiles = 1
+
 " This must be first, because it changes other options as a side effect.
 if has("multi_byte")
     if &termencoding == ""
@@ -128,6 +132,7 @@ set history=500    " keep 50 lines of command line history
 set undolevels=500
 set noswapfile
 set nobackup
+set nowritebackup
 
 " Search
 set incsearch    " do incremental searching
