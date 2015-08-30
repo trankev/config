@@ -282,6 +282,7 @@ alias vim="${EDITOR}"
 
 # applications
 
+alias pipupgrade="pip freeze --local | grep -v '^\\-e' | cut -d = -f 1 | xargs -n 1 pip install -U"
 alias sudo="sudo -E "
 alias diff="diff -ur"
 alias tailf="tail -f"
