@@ -9,3 +9,5 @@ Host *
   ControlMaster auto
   ControlPath ~/.ssh/cm_socket/ssh-%r@%h:%p
   ControlPersist 600
+  ServerAliveInterval 15
+  ServerAliveCountMax 3

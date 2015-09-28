@@ -85,8 +85,7 @@ function proot {
   [[ ${dest} == "" ]] && hash git 2>/dev/null && root="$(git rev-parse --show-cdup 2>/dev/null)." && dest=${root}
 
   # particular root folder
-  filemark="debian:.pc:.bzr:.hg:Makefile:setup.py:README"
-  filemark="${filemark}:manage.py:requirements.txt"
+  filemark="debian:.pc:.bzr:.hg:Makefile:setup.py:README:manage.py:requirements.txt"
   current=$(pwd)
   parent=$(dirname ${current})
   while [[ ${current} != $(dirname ${current}) || ${current} == ${HOME} ]]; do
@@ -113,7 +112,7 @@ function proot {
   # common parent folder
   if [[ ${dest} == "" ]]; then
     # projectpath
-    projectpath=${CDPATH}
+    projectpath=${PROJECTPATH}
 
     current_dir=$(pwd)
     for folder in $(echo ${projectpath} | tr ":" "\n"); do
@@ -231,6 +230,9 @@ function extract {     # Handy Extract Program.
 #====================================================================
 # aliases
 #====================================================================
+
+alias wgetd="wget -EHkKp"
+alias dc="docker-compose"
 
 # ls
 

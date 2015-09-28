@@ -47,7 +47,7 @@ mnemonicprefix = true
 
 [branch]
 autosetupmerge = always # auto track remote branch
-autosetuprebase = always # auto track remote branch
+autosetuprebase = always # force new branches to setup rebase
 
 [push]
 default = tracking # defaults push to upstream branch
@@ -57,6 +57,10 @@ enabled = true # record resolved conflicts hunks
 
 [fetch]
     recurseSubmodules = true
+    prune = true # remove deleted branches
 
 [http]
 sslVerify = false
+
+[pull]
+    rebase = true

@@ -1,10 +1,8 @@
 " Use Vim settings, rather than Vi settings (much better!).
+"
 set nocompatible
 filetype off
 
-
-let g:python_host_prog='/usr/bin/python2'
-let g:ycm_server_keep_logfiles = 1
 
 " This must be first, because it changes other options as a side effect.
 if has("multi_byte")
@@ -95,6 +93,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.php set omnifunc= "Too slow
     au BufRead,BufNewFile *.less set omnifunc= "Too slow
+    autocmd BufNewFile,BufRead *.less setf less
     autocmd FileType make setlocal noexpandtab
 
 endif
@@ -295,6 +294,12 @@ let g:syntastic_python_pylint_args=' --disable=C'
 noremap <leader>x <Esc>:Errors<CR>
 
 " UltiSnips
+if has("python3")
+    let g:UltiSnipsUsePythonVersion = 3
+else
+    let g:UltiSnipsUsePythonVersion = 2
+endif
+
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsListSnippets="<f3>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
@@ -318,6 +323,7 @@ map <leader>f :NERDTreeToggle<CR>
 " CtrlP
 map <leader>q :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Gundo.vim
 nnoremap <F4> :GundoToggle<CR>

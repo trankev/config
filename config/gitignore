@@ -41,8 +41,12 @@ __pycache__/
 .tox
 .python-version
 
-# Ruby
+# Javascript
+node_modules
+bower_components
+jspm_packages
 
+# Ruby
 .sass-cache
 
 # Eclipse
@@ -63,7 +67,7 @@ _build
 _static
 *.pid
 *.sqlite*
-bower_components
+core
 
 # openssl
 .srl
