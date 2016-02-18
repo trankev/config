@@ -156,6 +156,9 @@ autoload zmv
 # aliases
 #====================================================================
 
+alias zcp="zmv -C"
+alias zln="zmv -L"
+
 # global aliases
 
 alias -g L="| less"

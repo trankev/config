@@ -51,6 +51,7 @@ autosetuprebase = always # force new branches to setup rebase
 
 [push]
 default = tracking # defaults push to upstream branch
+	followTags = true
 
 [rerere]
 enabled = true # record resolved conflicts hunks
@@ -64,3 +65,5 @@ sslVerify = false
 
 [pull]
     rebase = true
+[rebase]
+	autosquash = true

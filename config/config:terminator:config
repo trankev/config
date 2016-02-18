@@ -2,10 +2,10 @@
   window_state = maximise
   handle_size = 1
   title_hide_sizetext = True
-  title_transmit_fg_color = "#AAAAAA"
+  title_transmit_fg_color = "#aaaaaa"
   title_inactive_fg_color = "#222222"
   suppress_multiple_term_dialog = True
-  title_transmit_bg_color = "#444444"
+  title_transmit_bg_color = "#000000"
   inactive_color_offset = 1.0
   title_inactive_bg_color = "#666666"
 [keybindings]

@@ -13,6 +13,8 @@ function put_link {
 
 }
 
+git submodule update --init --recursive
+
 config_folder="${HOME}/config/config"
 for config_file in $(ls ${config_folder}); do
     path="${HOME}/.$(echo ${config_file} | tr ':' '/')"
@@ -29,7 +31,7 @@ mkdir -p ~/.ssh/cm_socket
 
 youcompleteme_folder=~/.vim/bundle/YouCompleteMe
 if [ ! -f ${youcompleteme_folder}/third_party/ycmd/ycm_core.so ]; then
-    ${youcompleteme_folder}/install.sh
+    ${youcompleteme_folder}/install.py
 fi
 tern_for_vim_folder=~/.vim/bundle/tern_for_vim
 if [ ! -f ${tern_for_vim_folder}/node_modules ]; then
