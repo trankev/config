@@ -17,6 +17,7 @@ pretty=oneline # display one line per log entry
 [alias]
 st = status --short --branch
 ci = commit
+cia = commit --amend --no-edit
 co = checkout
 cl = clone
 br = branch -avv
@@ -52,6 +53,7 @@ autosetuprebase = always # force new branches to setup rebase
 [push]
 default = tracking # defaults push to upstream branch
 	followTags = true
+	recurseSubmodules = true
 
 [rerere]
 enabled = true # record resolved conflicts hunks
@@ -67,3 +69,4 @@ sslVerify = false
     rebase = true
 [rebase]
 	autosquash = true
+	autostash = true
