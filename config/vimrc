@@ -258,6 +258,7 @@ nmap <leader>ab :e ~/.bashrc<cr>
 nmap <leader>az :e ~/.zshrc<cr>
 nmap <leader>ac :e ~/.commonrc<cr>
 nmap <leader>au :e ~/.uncommonrc<cr>
+nmap <leader>ag :e ~/.gitconfig<cr>
 
 " allow command line editing like emacs
 cnoremap <C-A>       <Home>

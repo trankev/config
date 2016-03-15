@@ -53,13 +53,12 @@
 [push]
 	default = tracking # defaults push to upstream branch
 	followTags = true
-	recurseSubmodules = true
 
 [rerere]
 	enabled = true # record resolved conflicts hunks
 
 [fetch]
-	recurseSubmodules = trueG
+	recurseSubmodules = true
 	prune = true # remove deleted branches
 
 [http]
@@ -73,3 +72,6 @@
 
 [include]
 	path = .gitspecifics
+
+[merge]
+	tool = vimdiff
