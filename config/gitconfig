@@ -24,6 +24,7 @@
 	difff = diff --staged
 	ad = add -A
 	addd = add --patch
+	pushf = push --force-with-lease
 	sub = submodule
 	subup = submodule update --init --recursive
 	subpull = submodule foreach git pull origin master --recurse-submodules=yes
@@ -66,6 +67,7 @@
 
 [pull]
 	rebase = true
+
 [rebase]
 	autosquash = true
 	autostash = true

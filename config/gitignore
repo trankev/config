@@ -27,6 +27,7 @@ nohup.out
 
 # Log and databases
 *.log
+*.log.*
 *.sqlite
 
 # SVN
@@ -53,6 +54,9 @@ jspm_packages
 .project
 .pydevproject
 .settings
+
+# doc
+*.mo
 
 # history
 .netrwhist
