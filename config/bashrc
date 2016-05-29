@@ -45,10 +45,6 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 shopt -s cdspell
 shopt -s nocaseglob
 shopt -s expand_aliases
@@ -62,6 +58,12 @@ bash_prompt_command () {
     history -a
     PREVIOUS=$(_rc=$? && [[ ${_rc} -ne 0 ]] && echo "|${_rc}|")
     BRANCH=$(git symbolic-ref --short -q HEAD 2>/dev/null | xargs -I {} echo "<±{}>")
+    pyenv_version=$(pyenv version-name)
+    if [ $pyenv_version != "system" ]; then
+      prompt_venv="($pyenv_version)"
+    else
+      prompt_venv=""
+    fi
 }
 
 function set_prompt () {
@@ -95,7 +97,7 @@ function set_prompt () {
       isroot=${yellow}
     fi
 
-    PS1="${debian_chroot:+($debian_chroot)}"
+    PS1="${debian_chroot:+($debian_chroot)}\${prompt_venv}"
     PS1="${PS1}${darkblue}[${isroot}\u${darkblue}@${isremote}\h${darkblue}:${lightblue}\w${darkblue}]"
     PS1="${PS1}${green}(\t)"
     PS1="${PS1}${yellow}\${BRANCH}${reset}"
@@ -107,26 +109,6 @@ PROMPT_COMMAND=bash_prompt_command
 set_prompt
 
 # Completion
-
-_fab() {
-  local cur prev opts
-  COMPREPLY=()
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  prev="${COMP_WORDS[COMP_CWORD-1]}"
-  if [[ ${prev} == -H ]] ; then
-    opts=`\grep "Host " ~/.ssh/config | \grep -v "*" | cut -d" " -f 2-`
-    cur=${cur##*,}
-  elif [[ ${prev} == -R ]] ; then
-    opts=`python -c "import fabfile ; from fabric.api import env ; print '   '.join(env.roledefs.keys())"`
-    cur=${cur##*,}
-  else
-    opts=`fab -l | tail -n +3`
-  fi
-  COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
-  return 0
-}
-complete -F _fab fab
-complete -o default -F _fab fab gfab
 
 if [ -f ~/.commonrc ]; then
   . ~/.commonrc

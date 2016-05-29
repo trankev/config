@@ -23,10 +23,7 @@ fi
 if [ -d "${HOME}/.local/bin" ] ; then
     PATH="${HOME}/.local/bin:${PATH}"
 fi
-PATH="${HOME}/config/scripts:${PATH}"
-if [ -d "${HOME}/.local/lib/python" ] ; then
-    PYTHONPATH="${HOME}/.local/lib/python:${PYTHONPATH}"
-fi
+PATH="${HOME}/config/commands:${PATH}"
 
 # Set default editor
 if [[ -x $(which nvim) ]]; then
@@ -64,14 +61,10 @@ function up {
   echo ${dir}
 }
 
-export -f up >/dev/null
-
 function .. {
   result=$(up $@)
   cd ${result}
 }
-
-export -f .. >/dev/null
 
 # goes to root of a svn or git project, or root of a project given its
 # folder, or to home
@@ -132,12 +125,6 @@ function proot {
   else
     echo ${dest}
   fi
-}
-
-export -f proot >/dev/null
-
-function bd {
-  cd $(pwd | sed 's#\(.*/'$1'[^/]*/\).*#\1#')
 }
 
 function install {
@@ -318,7 +305,7 @@ if [ -f ~/.uncommonrc ]; then
 fi
 
 if [ -d ~/.pyenv ]; then
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   export PYENV_ROOT="${HOME}/.pyenv"
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init  -)"
