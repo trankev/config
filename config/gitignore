@@ -55,6 +55,8 @@ jspm_packages
 .pydevproject
 .settings
 
+.idea
+
 # doc
 *.mo
 
