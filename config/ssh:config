@@ -11,3 +11,13 @@ Host *
   ControlPersist 600
   ServerAliveInterval 15
   ServerAliveCountMax 3
+
+Host bitbucket.org
+  Hostname bitbucket.org
+  IdentityFile ~/.ssh/keys/bitbucket_scality
+  IdentitiesOnly yes
+
+Host github.com
+  Hostname github.com
+  IdentityFile ~/.ssh/keys/github
+  IdentitiesOnly yes

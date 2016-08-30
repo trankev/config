@@ -1,0 +1,64 @@
+"*":
+  autosave:
+    enabled: true
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    disabledPackages: [
+      "python-indent"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "__pycache__"
+      ".*"
+      "*.log"
+    ]
+    packagesWithKeymapsDisabled: [
+      "comment"
+    ]
+    projectHome: "/home/wezegege/workspace"
+  editor:
+    scrollPastEnd: true
+    showInvisibles: true
+    softWrap: true
+    tabLength: 4
+  "keyboard-localization":
+    useKeyboardLayout: "fr_FR"
+  linter:
+    showErrorPanel: false
+    showErrorTabLine: true
+  "linter-flake8": {}
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "split-diff":
+    syncHorizontalScroll: true
+  "tree-view":
+    alwaysOpenExisting: true
+    hideIgnoredNames: true
+    squashDirectoryNames: true
+  "vim-mode-plus":
+    clearHighlightSearchOnResetNormalMode: true
+    clearRangeMarkerOnResetNormalMode: true
+    highlightSearch: true
+    incrementalSearch: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+".dockerfile.source":
+  editor:
+    tabLength: 4
+".dockerignore.source":
+  editor:
+    tabLength: 4
+"file-types":
+  "^Dockerfile\\..*$": "source.dockerfile"

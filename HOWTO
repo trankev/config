@@ -1,0 +1,10 @@
+Atom
+====
+
+Export config:
+
+    apm list --installed --bare > package-list.txt
+
+Import config:
+
+    apm install --packages-file package-list.txt

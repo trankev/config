@@ -337,6 +337,7 @@ let g:neomake_javascript_eslint_maker = {
             \ 'args': ['--no-color', '--format', 'compact'],
             \ 'errorformat': '%f: line %l\, col %c\, %m'
             \ }
+let g:neomake_cpp_enable_makers = ['tslint', 'tsc']
 let g:neomake_typescript_tsc_maker = {
             \ 'args': ['--experimentalDecorators']
             \ }

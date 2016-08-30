@@ -45,6 +45,8 @@ PROJECTPATH="${PROJECTPATH}:/lib:/var/*:/etc:/srv:/opt"
 
 ulimit -c unlimited
 
+setxkbmap -option "nbsp:none"
+
 
 #====================================================================
 # functions
@@ -311,5 +313,4 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv init  -)"
   eval "$(pyenv virtualenv-init  -)"
 fi
-
 
