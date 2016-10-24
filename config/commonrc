@@ -63,6 +63,10 @@ function up {
   echo ${dir}
 }
 
+function mkcd {
+  mkdir "$1" && cd "$1"
+}
+
 function .. {
   result=$(up $@)
   cd ${result}
