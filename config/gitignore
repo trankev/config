@@ -46,6 +46,7 @@ __pycache__/
 node_modules
 bower_components
 jspm_packages
+typings
 
 # Ruby
 .sass-cache
