@@ -1,7 +1,7 @@
 [core]
 	editor = vim
 	autocrlf = input
-	whitespace = trailing-spaces,space-before-tab
+	whitespace = cr-at-eol
 	excludesfile = ~/.gitignore
 	sharedRepository = group
 

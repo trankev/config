@@ -138,7 +138,7 @@ set incsearch    " do incremental searching
 set smartcase
 set infercase
 if version >= 703
-    set wildignorecase " file name case insensitive completion
+    set fileignorecase " file name case insensitive completion
 endif
 set showmatch
 set showfulltag

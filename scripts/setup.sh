@@ -40,5 +40,3 @@ if [ ! -f ${tern_for_vim_folder}/node_modules ]; then
     npm install
     popd
 fi
-
-
