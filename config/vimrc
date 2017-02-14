@@ -469,3 +469,6 @@ nmap <silent><F5> :call Refresh()<cr>
 nmap <silent><F6> :call PrintMode()<cr>
 nmap ,i :call Indent()<left>
 
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+

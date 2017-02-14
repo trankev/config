@@ -46,6 +46,7 @@
 [diff]
 	renames = copies # detects file moving and copying
 	mnemonicprefix = true
+	submodule = log
 
 [branch]
 	autosetupmerge = always # auto track remote branch
@@ -77,3 +78,5 @@
 
 [merge]
 	tool = vimdiff
+[lfs]
+	# fetchexclude = *

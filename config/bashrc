@@ -24,11 +24,12 @@ fi
 
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd"
 export HISTFILE=~/.histfile
-export HISTSIZE=1000000
+export HISTSIZE=8192
 export SAVEHIST=1000000
-export HISTFILESIZE=2000000
-export HISTCONTROL=ignoreboth
+export HISTFILESIZE=500000000
+export HISTCONTROL=ignoreboth:erasedups
 set APPEND_HISTORY
+set INC_APPEND_HISTORY
 set AUTO_CD
 
 # append to the history file, don't overwrite it
