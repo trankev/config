@@ -43,10 +43,10 @@ __pycache__/
 .python-version
 
 # Javascript
-node_modules
-bower_components
-jspm_packages
-typings
+node_modules/
+bower_components/
+jspm_packages/
+typings/
 
 # Ruby
 .sass-cache
@@ -56,6 +56,7 @@ typings
 .pydevproject
 .settings
 
+# IntellijIDEA
 .idea
 
 # doc

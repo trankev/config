@@ -1,82 +1,87 @@
 [core]
-	editor = vim
-	autocrlf = input
-	whitespace = cr-at-eol
-	excludesfile = ~/.gitignore
-	sharedRepository = group
+  editor = vim
+  autocrlf = input
+  whitespace = trailing-spaces,space-before-tab
+  excludesfile = ~/.gitignore
+  sharedRepository = group
 
 [color]
-	branch=auto
-	diff=auto
-	interactive=auto
-	status=auto
+  branch=auto
+  diff=auto
+  interactive=auto
+  status=auto
 
 [format]
-	pretty=oneline # display one line per log entry
+  pretty=oneline # display one line per log entry
 
 [alias]
-	st = status --short --branch
-	ci = commit
-	cia = commit --amend --no-edit
-	co = checkout
-	cl = clone
-	br = branch -avv
-	difff = diff --staged
-	ad = add -A
-	addd = add --patch
-	pushf = push --force-with-lease
-	sub = submodule
-	subup = submodule update --init --recursive
-	subpull = submodule foreach git pull origin master --recurse-submodules=yes
-	subco = submodule foreach git checkout master
-	lg = log -n 15 --abbrev-commit --no-merges
-	lgg = log --graph --pretty=format:'%Cred%h%Creset %s%Cred%d%Creset %Cgreen(%cr by %cN)%Creset'
-	re = remote -vv
-	amend = commit --amend -C HEAD
-	rc = rebase --continue
-	rs = rebase --skip
-	ra = rebase --abort
+  st = status --short --branch
+  ci = commit
+  cia = commit --amend --no-edit
+  co = checkout
+  cl = clone
+  br = branch -avv
+  difff = diff --staged
+  ad = add -A
+  addd = add --patch
+  pushf = push --force-with-lease
+  sub = submodule
+  subup = submodule update --init --recursive
+  subpull = submodule foreach git pull origin master --recurse-submodules=yes
+  subco = submodule foreach git checkout master
+  lg = log -n 15 --abbrev-commit --no-merges
+  lgg = log --graph --pretty=format:'%Cred%h%Creset %s%Cred%d%Creset %Cgreen(%cr by %cN)%Creset'
+  re = remote -vv
+  amend = commit --amend -C HEAD
+  rc = rebase --continue
+  rs = rebase --skip
+  ra = rebase --abort
+  stsh = stash --keep-index
+  staash = stash --include-untracked
 
 [user]
-	logallrefupdates = true
+  logallrefupdates = true
 
 [help]
-	autocorrect = 1
+  autocorrect = 1
 
 [diff]
-	renames = copies # detects file moving and copying
-	mnemonicprefix = true
-	submodule = log
+  renames = copies # detects file moving and copying
+  mnemonicprefix = true
+  submodule = log
 
 [branch]
-	autosetupmerge = always # auto track remote branch
-	autosetuprebase = always # force new branches to setup rebase
+  autosetupmerge = always # auto track remote branch
+  autosetuprebase = always # force new branches to setup rebase
 
 [push]
-	default = tracking # defaults push to upstream branch
-	followTags = true
+  default = tracking # defaults push to upstream branch
+  followTags = true
 
 [rerere]
-	enabled = true # record resolved conflicts hunks
+  enabled = true # record resolved conflicts hunks
 
 [fetch]
-	recurseSubmodules = true
-	prune = true # remove deleted branches
+  recurseSubmodules = true
+  prune = true # remove deleted branches
 
 [http]
-	sslVerify = false
+  sslVerify = false
 
 [pull]
-	rebase = true
+  rebase = true
 
 [rebase]
-	autosquash = true
-	autostash = true
+  autosquash = true
+  autostash = true
 
 [include]
-	path = .gitspecifics
+  path = .gitspecifics
 
 [merge]
-	tool = vimdiff
-[lfs]
-	# fetchexclude = *
+  tool = vimdiff
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
