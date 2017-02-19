@@ -279,3 +279,6 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv virtualenv-init  -)"
 fi
 
+if [ -d ~/.nvm ]; then
+  . ~/.nvm/nvm.sh
+fi
