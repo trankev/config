@@ -1,13 +1,15 @@
+Include ~/.ssh/config.d/*
+
 Host *
   HashKnownHosts yes
-  ForwardAgent yes
-  ForwardX11 yes
-  ForwardX11Trusted yes
-  GssApiAuthentication yes
-  GssApiAuthentication no
-  GssApiDelegateCredentials yes
-  ControlMaster auto
-  ControlPath ~/.ssh/cm_socket/ssh-%r@%h:%p
-  ControlPersist 600
   ServerAliveInterval 15
   ServerAliveCountMax 3
+  #ForwardAgent yes
+  #ForwardX11 yes
+  #ForwardX11Trusted yes
+  #GssApiAuthentication yes
+  #GssApiAuthentication no
+  #GssApiDelegateCredentials yes
+  #ControlMaster auto
+  #ControlPath ~/.ssh/cm_socket/ssh-%r@%h:%p
+  #ControlPersist 600
