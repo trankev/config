@@ -1,6 +1,0 @@
----
-- hosts: laptop
-  roles:
-    - wifi
-    - laptop
-
