@@ -279,6 +279,7 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv virtualenv-init  -)"
 fi
 
-if [ -d ~/.nvm ]; then
-  . ~/.nvm/nvm.sh
+if [ -d ~/.nodenv ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
 fi

@@ -49,6 +49,6 @@
 [submodule "config/vim/bundle/typescript-vim"]
 	path = config/vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "config/nvm"]
-	path = config/nvm
-	url = https://github.com/creationix/nvm.git
+[submodule "config/nodeenv"]
+	path = config/nodenv
+	url = git@github.com:nodenv/nodenv.git
