@@ -1,6 +1,8 @@
 # Linux
 *.swp
 *~
+# rustfmt backup file
+*.bk  
 nohup.out
 
 # Compiled source
@@ -58,6 +60,7 @@ typings/
 
 # IntellijIDEA
 .idea
+.vscode
 
 # doc
 *.mo
