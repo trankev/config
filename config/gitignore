@@ -43,6 +43,7 @@ __pycache__/
 .coverage*
 .tox
 .python-version
+.mypy_cache/
 
 # Javascript
 node_modules/
@@ -84,3 +85,4 @@ core
 .srl
 
 .vagrant
+callgrind.out
