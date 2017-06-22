@@ -12,6 +12,6 @@ echo "Running '$@'"
 while true; do
     $@ &
     PID=$!
-    inotifywait -e modify -e move -e create -e delete -e attrib -r $(pwd)
+    inotifywait -q -e modify -e move -e create -e delete -e attrib -r $(pwd)
     kill $PID
 done
