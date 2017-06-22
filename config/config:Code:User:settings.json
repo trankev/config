@@ -31,5 +31,7 @@
     "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "rust.showOutput": true,
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "editor.wordWrap": "on",
+    "python.formatting.yapfArgs": ["--style", "pep8"]
 }
