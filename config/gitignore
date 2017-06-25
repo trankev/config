@@ -1,6 +1,8 @@
 # Linux
 *.swp
 *~
+.cache
+
 # rustfmt backup file
 *.bk  
 nohup.out
