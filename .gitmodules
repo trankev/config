@@ -55,3 +55,6 @@
 [submodule "config/vim/bundle/rust.vim"]
 	path = config/vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "config/nodenv:plugins:node-build"]
+	path = config/nodenv:plugins:node-build
+	url = git@github.com:nodenv/node-build.git
