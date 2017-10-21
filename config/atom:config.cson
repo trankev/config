@@ -4,9 +4,6 @@
   core:
     audioBeep: false
     autoHideMenuBar: true
-    disabledPackages: [
-      "python-indent"
-    ]
     ignoredNames: [
       ".git"
       ".hg"
@@ -22,16 +19,17 @@
       "comment"
     ]
     projectHome: "/home/wezegege/workspace"
+    telemetryConsent: "no"
   editor:
     scrollPastEnd: true
     showInvisibles: true
     softWrap: true
     tabLength: 4
+  "exception-reporting":
+    userId: "34e381a8-dce3-42d6-803e-d2948d04b86b"
   "keyboard-localization":
     useKeyboardLayout: "fr_FR"
-  linter:
-    showErrorPanel: false
-    showErrorTabLine: true
+  linter: {}
   "linter-flake8": {}
   minimap:
     plugins:
@@ -48,6 +46,7 @@
     clearRangeMarkerOnResetNormalMode: true
     highlightSearch: true
     incrementalSearch: true
+    notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
   welcome:
