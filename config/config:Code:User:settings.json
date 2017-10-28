@@ -19,7 +19,6 @@
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "vim.useSystemClipboard": true,
-    "vim.useSolidBlockCursor": true,
     "vim.hlsearch": true,
     "vim.statusBarColorControl": true,
     "vim.visualstar": true,
@@ -33,5 +32,9 @@
     "rust.showOutput": true,
     "window.zoomLevel": -1,
     "editor.wordWrap": "on",
-    "python.formatting.yapfArgs": ["--style", "pep8"]
+    "python.formatting.yapfArgs": [
+        "--style",
+        "pep8"
+    ],
+    "python.venvPath": "~/.pyenv"
 }
