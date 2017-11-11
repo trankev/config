@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="switch_tab_last" mtime="1510411403" type="string">
+		<stringvalue>&lt;Primary&gt;F11</stringvalue>
+	</entry>
+</gconf>

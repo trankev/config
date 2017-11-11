@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="show_hide" mtime="1498380543" type="string">
-		<stringvalue>&lt;Shift&gt;F12</stringvalue>
+	<entry name="show_hide" mtime="1510411408" type="string">
+		<stringvalue>&lt;Primary&gt;F12</stringvalue>
 	</entry>
 </gconf>
