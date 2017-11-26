@@ -36,5 +36,7 @@
         "--style",
         "pep8"
     ],
-    "python.venvPath": "~/.pyenv"
+    "python.venvPath": "~/.pyenv",
+    "git.enableSmartCommit": true,
+    "files.insertFinalNewline": true
 }
