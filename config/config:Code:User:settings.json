@@ -40,7 +40,7 @@
     "git.enableSmartCommit": true,
     "files.insertFinalNewline": true,
     "sync.gist": "f3c1ad18f928949263963e47febc2a68",
-    "sync.lastUpload": "2017-12-03T07:20:39.783Z",
+    "sync.lastUpload": "2018-01-14T17:28:02.903Z",
     "sync.autoDownload": true,
     "sync.autoUpload": true,
     "sync.lastDownload": "",
@@ -49,5 +49,8 @@
     "sync.host": "",
     "sync.pathPrefix": "",
     "sync.quietSync": false,
-    "sync.askGistName": false
+    "sync.askGistName": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false
 }

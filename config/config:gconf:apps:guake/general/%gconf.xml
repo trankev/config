@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="window_height_f" mtime="1511635278" type="float" value="49.074074074074076"/>
-	<entry name="window_height" mtime="1511651183" type="int" value="43"/>
+	<entry name="window_height_f" mtime="1514908016" type="float" value="50.833333333333336"/>
+	<entry name="window_height" mtime="1514908016" type="int" value="50"/>
 	<entry name="window_refocus" mtime="1510411394" type="bool" value="false"/>
 	<entry name="compat_delete" mtime="1510411394" type="string">
 		<stringvalue>delete-sequence</stringvalue>
