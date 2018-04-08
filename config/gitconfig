@@ -4,6 +4,7 @@
   whitespace = trailing-spaces,space-before-tab
   excludesfile = ~/.gitignore
   sharedRepository = group
+  pager = /usr/share/git/diff-highlight/diff-highlight | less -rx1,5
 
 [color]
   branch=auto

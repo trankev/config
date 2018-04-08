@@ -46,6 +46,7 @@ __pycache__/
 .tox
 .python-version
 .mypy_cache/
+.pytest_cache/
 
 # Javascript
 node_modules/
