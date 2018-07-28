@@ -29,7 +29,7 @@
     "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "rust.showOutput": true,
-    "window.zoomLevel": -3,
+    "window.zoomLevel": -2,
     "editor.wordWrap": "on",
     "python.formatting.yapfArgs": [
         "--style",
@@ -39,10 +39,10 @@
     "git.enableSmartCommit": true,
     "files.insertFinalNewline": true,
     "sync.gist": "fd929755cf49e21339d0f781a2fee477",
-    "sync.lastUpload": "2017-12-10T11:17:12.420Z",
+    "sync.lastUpload": "2018-07-28T16:02:14.028Z",
     "sync.autoDownload": true,
     "sync.autoUpload": true,
-    "sync.lastDownload": "",
+    "sync.lastDownload": "2018-07-08T12:14:49.262Z",
     "sync.forceDownload": false,
     "sync.anonymousGist": false,
     "sync.host": "",
@@ -51,5 +51,9 @@
     "sync.askGistName": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "rust.mode": "legacy"
 }
