@@ -33,7 +33,7 @@
 	url = https://github.com/vim-scripts/ctrlp.vim.git
 [submodule "config/pyenv"]
 	path = config/pyenv
-	url = git://github.com/yyuu/pyenv.git
+	url = https://github.com/yyuu/pyenv.git
 [submodule "config/pyenv:plugins:pyenv-virtualenv"]
 	path = config/pyenv:plugins:pyenv-virtualenv
 	url = https://github.com/yyuu/pyenv-virtualenv.git
@@ -51,10 +51,10 @@
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "config/nodeenv"]
 	path = config/nodenv
-	url = git@github.com:nodenv/nodenv.git
+	url = https://github.com/nodenv/nodenv.git
 [submodule "config/vim/bundle/rust.vim"]
 	path = config/vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule "config/nodenv:plugins:node-build"]
 	path = config/nodenv:plugins:node-build
-	url = git@github.com:nodenv/node-build.git
+	url = https://github.com/nodenv/node-build.git
