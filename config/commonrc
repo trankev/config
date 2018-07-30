@@ -193,10 +193,10 @@ alias dc="docker-compose"
 # ls
 
 alias ls="ls --color=auto"
-alias ll="ls -lhF --group-directories-first"
+alias ll="ls -lhFi --group-directories-first"
 alias la="ls -A --group-directories-first"
 alias lla="ll -A"
-alias lt="ls -lrth"
+alias lt="ls -lrthi"
 alias lta="lt -A"
 
 # grep
@@ -285,3 +285,5 @@ if [ -d ~/.nodenv ]; then
   export PATH="$HOME/.nodenv/bin:$PATH"
   eval "$(nodenv init -)"
 fi
+
+export LC_ALL='en_US.utf-8'
