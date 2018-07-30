@@ -57,7 +57,7 @@
   autosetuprebase = always # force new branches to setup rebase
 
 [push]
-  default = tracking # defaults push to upstream branch
+  default = simple
   followTags = true
 
 [rerere]
