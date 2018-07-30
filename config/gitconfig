@@ -39,6 +39,7 @@
   ra = rebase --abort
   stsh = stash --keep-index
   staash = stash --include-untracked
+  showf = show --format=fuller
 
 [user]
   logallrefupdates = true
