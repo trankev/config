@@ -55,5 +55,19 @@
     "git.autofetch": true,
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
-    "rust.mode": "legacy"
+    "rust.mode": "legacy",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "terminal.integrated.rendererType": "dom",
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.mypy_cache": true,
+        "**/.tox": true,
+        "**/*.egg-info": true
+    }
 }
