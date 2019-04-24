@@ -1,0 +1,12 @@
+---
+- name: Install docker
+  package: name=docker state=installed
+  notify:
+    - Start docker
+- name: Install packages
+  package: name="{{ item }}" state=installed
+  with_items:
+    - git
+    - npm
+    - cmake
+    - yaourt
