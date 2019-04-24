@@ -1,11 +1,11 @@
 # Linux
 *.swp
 *~
-.cache
+**/.cache
 
 # rustfmt backup file
 *.bk  
-nohup.out
+**/nohup.out
 
 # Compiled source
 *.pyc
@@ -35,58 +35,59 @@ nohup.out
 *.sqlite
 
 # SVN
-.svn/
+**/.svn/
 
 # Python
 __pycache__/
 *.egg-info/
 *.egg
-.eggs/
-.coverage*
-.tox
-.python-version
-.mypy_cache/
-.pytest_cache/
+**/.eggs/
+**/.coverage*
+**/.tox
+**/.python-version
+**/.mypy_cache/
+**/.pytest_cache/
 
 # Javascript
-node_modules/
-bower_components/
-jspm_packages/
-typings/
+**/node_modules/
+**/bower_components/
+**/jspm_packages/
+**/typings/
 
 # Ruby
-.sass-cache
+**/.sass-cache/
 
 # Eclipse
-.project
-.pydevproject
-.settings
+**/.project/
+**/.pydevproject/
+**/.settings/
 
 # IntellijIDEA
-.idea
-.vscode
+**/.idea/
+**/.vscode/
 
 # doc
 *.mo
 
 # history
-.netrwhist
+**/.netrwhist
 
 # ctags
-tags
+**/tags
 
 
 # build folder
-target
-build
-_build
-_static
+**/target/
+**/build/
+**/_build/
+**/_static/
 *.pid
 *.sqlite*
-core
+**/core
+!**/core/
 
 # openssl
-.srl
+**/.srl/
 
-.vagrant
-callgrind.out
+**/.vagrant/
+**/callgrind.out
