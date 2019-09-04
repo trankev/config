@@ -1,10 +1,11 @@
 [core]
+
   editor = vim
   autocrlf = input
   whitespace = trailing-spaces,space-before-tab
   excludesfile = ~/.gitignore
   sharedRepository = group
-  pager = /usr/share/git/diff-highlight/diff-highlight | less -rx1,5
+  # pager = /usr/share/git/diff-highlight/diff-highlight | less -rx1,5
 
 [color]
   branch=auto
@@ -22,6 +23,8 @@
   co = checkout
   cl = clone
   br = branch -avv
+
+
   difff = diff --staged
   ad = add -A
   addd = add --patch
@@ -40,6 +43,7 @@
   stsh = stash --keep-index
   staash = stash --include-untracked
   showf = show --format=fuller
+  refl = log -g --pretty=fuller
 
 [user]
   logallrefupdates = true
@@ -71,7 +75,7 @@
   sslVerify = false
 
 [pull]
-  rebase = true
+	rebase = preserve
 
 [rebase]
   autosquash = true

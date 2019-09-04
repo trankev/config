@@ -91,3 +91,6 @@ __pycache__/
 
 **/.vagrant/
 **/callgrind.out
+
+# java
+.factorypath
