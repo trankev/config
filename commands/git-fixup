@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS='\n\t'
+
+if [ $# -lt 1 ]; then
+    cat <<EOF
+Usage: $0 <commitid>
+
+OPTIONS
+
+    commitid     commit to fixup
+EOF
+fi
+
+COMMIT_ID="$1"
+
+git commit --fixup "${COMMIT_ID}"
+git rebase --interactive --autosquash "${COMMIT_ID}~1"
