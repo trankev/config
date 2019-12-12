@@ -1,0 +1,20 @@
+---
+- name: Set neovim repository
+  when: ansible_distribution_major_version|int < 18
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+    state: present
+    update_cache: true
+- name: Download vscode repository signing key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+- name: Set vscode repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    state: present
+    update_cache: true
+- name: Install packages
+  package: name="{{ item }}" state=latest
+  with_items:
+    - code

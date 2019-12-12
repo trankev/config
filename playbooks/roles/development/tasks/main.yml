@@ -1,10 +1,7 @@
 ---
-- name: Set neovim repository
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int < 18
-  apt_repository:
-    repo: 'ppa:neovim-ppa/stable'
-    state: present
-    update_cache: true
+- name: Ubuntu stuff
+  when: ansible_distribution == 'Ubuntu'
+  include: ./ubuntu.yml
 - name: Install packages
   package: name="{{ item }}" state=latest
   with_items:
