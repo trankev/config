@@ -1,6 +1,7 @@
 ---
 - name: install packages
-  package: name="{{ item }}" state=installed
+  package: name="{{ item }}" state=latest
   with_items:
     - terminator
     - guake
+    - chromium-browser

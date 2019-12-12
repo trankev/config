@@ -1,12 +1,38 @@
 ---
-- name: Install docker
-  package: name=docker state=installed
-  notify:
-    - Start docker
+- name: Set neovim repository
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int < 18
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+    state: present
+    update_cache: true
 - name: Install packages
-  package: name="{{ item }}" state=installed
+  package: name="{{ item }}" state=latest
   with_items:
+    - docker
     - git
     - npm
     - cmake
-    - yaourt
+    - vim
+    - neovim
+    - docker-compose
+    - htop
+    - python3-dev
+- name: Start Docker
+  systemd: name=docker state=started enabled=yes
+- name: "Add user {{ ansible_user }} to Docker group"
+  user:
+    name: "{{ ansible_user }}"
+    append: yes
+    groups: docker
+- name: fetch config
+  git:
+    repo: https://github.com/trankev/config.git
+    dest: /home/{{ ansible_user }}/config
+  become: yes
+  become_user: "{{ ansible_user }}"
+  register: gitconfig
+- name: install config
+  when: gitconfig.changed
+  become: yes
+  become_user: "{{ ansible_user }}"
+  shell: /home/{{ ansible_user }}/config/scripts/setup.sh
