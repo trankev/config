@@ -17,7 +17,10 @@ function put_link {
 
 }
 
-git submodule update --init --recursive
+pushd .
+    cd ~/config
+    git submodule update --init --recursive
+popd
 
 config_folder="${HOME}/config/config"
 for config_file in $(ls ${config_folder}); do
