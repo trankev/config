@@ -37,10 +37,3 @@ youcompleteme_folder=~/.vim/bundle/YouCompleteMe
 if [ ! -f ${youcompleteme_folder}/third_party/ycmd/ycm_core.so ]; then
     python3 ${youcompleteme_folder}/install.py
 fi
-tern_for_vim_folder=~/.vim/bundle/tern_for_vim
-if [ ! -f ${tern_for_vim_folder}/node_modules ]; then
-    pushd .
-    cd ${tern_for_vim_folder}
-    npm install
-    popd
-fi
