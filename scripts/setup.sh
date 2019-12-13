@@ -1,6 +1,10 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 
+set -o errexit
+set -o nounset
+set -o pipefail
+
 function put_link {
     link=$1
     dest=$2
