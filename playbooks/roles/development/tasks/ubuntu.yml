@@ -18,3 +18,4 @@
   package: name="{{ item }}" state=latest
   with_items:
     - code
+    - python3-dev

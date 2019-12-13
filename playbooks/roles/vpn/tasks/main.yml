@@ -1,0 +1,54 @@
+---
+- name: Install dependencies
+  package: name="{{ item }}" state=latest
+  with_items:
+    - strongswan
+    - xl2tpd
+- name: Ipsec settings
+  template:
+    src: ../templates/ipsec.conf
+    dest: /etc/ipsec.conf
+  notify: restart strongswan
+- name: Ipsec secrets
+  template:
+    src: ../templates/ipsec.secrets
+    dest: /etc/ipsec.secrets
+    mode: '0600'
+  notify: restart strongswan
+- name: xl2tpd settings
+  template:
+    src: ../templates/xl2tpd.conf
+    dest: /etc/xl2tpd/xl2tpd.conf
+  notify: restart xl2tpd
+- name: ppp settings
+  template:
+    src: ../templates/options.l2tpd.client
+    dest: /etc/ppp/options.l2tpd.client
+    mode: '0600'
+  notify: restart xl2tpd
+- name: xl2tpd folder
+  file:
+    path: /var/run/xl2tpd
+    state: directory
+- name: xl2tpd control file
+  file:
+    path: /var/run/xl2tpd/l2tp-control
+    state: touch
+- name: start strongswan
+  service: name=strongswan state=started
+- name: start xl2tpd
+  service: name=xl2tpd state=started
+- name: start script
+  become: yes
+  become_user: "{{ ansible_user }}"
+  template:
+    src: ../templates/start_vpn.sh
+    dest: /home/{{ ansible_user }}/start_vpn.sh
+    mode: '0700'
+- name: stop script
+  become: yes
+  become_user: "{{ ansible_user }}"
+  template:
+    src: ../templates/stop_vpn.sh
+    dest: /home/{{ ansible_user }}/stop_vpn.sh
+    mode: '0700'

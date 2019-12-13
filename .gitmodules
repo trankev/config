@@ -58,3 +58,6 @@
 [submodule "config/nodenv:plugins:node-build"]
 	path = config/nodenv:plugins:node-build
 	url = https://github.com/nodenv/node-build.git
+[submodule "playbooks/library/external_modules/ansible-aur"]
+	path = playbooks/library/external_modules/ansible-aur
+	url = https://github.com/kewlfft/ansible-aur.git

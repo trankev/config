@@ -4,4 +4,9 @@
   with_items:
     - terminator
     - guake
-    - chromium-browser
+- name: Ubuntu stuff
+  when: ansible_distribution == 'Ubuntu'
+  include: ./ubuntu.yml
+- name: Archlinux stuff
+  when: ansible_distribution == 'Archlinux'
+  include: ./archlinux.yml

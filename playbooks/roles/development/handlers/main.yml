@@ -1,0 +1,5 @@
+---
+- name: install config
+  become: yes
+  become_user: "{{ ansible_user }}"
+  shell: /home/{{ ansible_user }}/config/scripts/setup.sh

@@ -1,0 +1,18 @@
+---
+- user:
+    name: aur_builder
+    group: wheel
+- lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+- package: name="{{ item }}" state=latest
+  with_items:
+    - yay
+    - base-devel
+- name: Install packages
+  aur:
+    name: visual-studio-code-bin
+  become: yes
+  become_user: aur_builder

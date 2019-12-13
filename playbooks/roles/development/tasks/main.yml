@@ -2,6 +2,9 @@
 - name: Ubuntu stuff
   when: ansible_distribution == 'Ubuntu'
   include: ./ubuntu.yml
+- name: Archlinux stuff
+  when: ansible_distribution == 'Archlinux'
+  include: ./archlinux.yml
 - name: Install packages
   package: name="{{ item }}" state=latest
   with_items:
@@ -13,7 +16,6 @@
     - neovim
     - docker-compose
     - htop
-    - python3-dev
 - name: Start Docker
   systemd: name=docker state=started enabled=yes
 - name: "Add user {{ ansible_user }} to Docker group"
@@ -27,9 +29,4 @@
     dest: /home/{{ ansible_user }}/config
   become: yes
   become_user: "{{ ansible_user }}"
-  register: gitconfig
-- name: install config
-  when: gitconfig.changed
-  become: yes
-  become_user: "{{ ansible_user }}"
-  shell: /home/{{ ansible_user }}/config/scripts/setup.sh
+  notify: install config
