@@ -29,13 +29,13 @@
     "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "rust.showOutput": true,
-    "window.zoomLevel": -2,
+    "window.zoomLevel": -1,
     "editor.wordWrap": "on",
     "python.formatting.yapfArgs": [
         "--style",
         "pep8"
     ],
-    "python.venvPath": "~/.pyenv",
+    "python.venvPath": "\"~/.pyenv\":\"~/.cache/pypoetry/virtualenvs\"",
     "git.enableSmartCommit": true,
     "files.insertFinalNewline": true,
     "sync.gist": "fd929755cf49e21339d0f781a2fee477",
