@@ -137,7 +137,7 @@ function proot {
 
 function install {
    hash apt-get 2>/dev/null && sudo apt-get install $@ && return
-   hash pacman-color 2>/dev/null && sudo pacman-color -S $@ && return
+   hash yay 2>/dev/null && yay -S $@ && return
    hash pacman 2>/dev/null && sudo pacman -S $@ && return
    hash yaourt 2>/dev/null && yaourt --noconfirm $@ && return
    hash yum 2>/dev/null && sudo yum install $@ && return
@@ -147,7 +147,7 @@ function install {
 
 function update {
    hash apt-get 2>/dev/null && sudo apt-get update && sudo apt-get dist-upgrade $@ && sudo apt-get clean && return
-   hash pacman-color 2>/dev/null && sudo pacman-color -Syu $@ && return
+   hash yay 2>/dev/null && yay -Syu $@ && return
    hash pacman 2>/dev/null && sudo pacman -Syu $@ && return
    hash yum 2>/dev/null && sudo yum upgrade $@ && return
    echo "No package manager found"
