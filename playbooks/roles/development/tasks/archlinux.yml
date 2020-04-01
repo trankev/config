@@ -11,6 +11,7 @@
   with_items:
     - yay
     - base-devel
+    - python-pip
 - name: Install packages
   aur:
     name: visual-studio-code-bin
