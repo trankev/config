@@ -22,7 +22,9 @@
   cia = commit --amend --no-edit
   co = checkout
   cl = clone
-  br = branch -avv
+  br = branch -avv --format='%(color:red)%(objectname:short)%(color:reset) %(color:yellow)%(refname:short)%(color:reset) %(contents:subject) (%(color:green)%(committerdate:relative) by %(authorname)%(color:reset))'
+  tags = log --oneline --decorate --tags --no-walk
+
 
 
   difff = diff --staged
@@ -59,7 +61,7 @@
 [branch]
   autosetupmerge = always # auto track remote branch
   autosetuprebase = always # force new branches to setup rebase
-
+  
 [push]
   default = simple
   followTags = true
