@@ -1,0 +1,11 @@
+---
+# to put in inventories/desktop/hosts.yml
+desktop:
+    hosts:
+        <ip_address>:
+            ansible_connection: ssh
+            ansible_user: <user>
+            ansible_ssh_pass: <password>
+            ansible_become: yes
+            ansible_become_pass: <password>
+            main_user: <user>
