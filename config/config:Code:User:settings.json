@@ -69,5 +69,7 @@
         "**/.mypy_cache": true,
         "**/.tox": true,
         "**/*.egg-info": true
-    }
+    },
+    "python.languageServer": "Pylance",
+    "python.analysis.completeFunctionParens": true
 }
