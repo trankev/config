@@ -88,6 +88,11 @@ __pycache__/
 !**/core/
 /dist/
 
+# Terraform
+**/.terraform/
+**/.terraform.lock*
+**/terraform.tfstate*
+
 # openssl
 **/.srl/
 
