@@ -99,5 +99,8 @@ __pycache__/
 **/.vagrant/
 **/callgrind.out
 
+# terraform
+**/.terraform*
+
 # java
 .factorypath
