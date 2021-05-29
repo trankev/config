@@ -7,6 +7,8 @@
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #====================================================================
 # Prompt
@@ -121,6 +123,8 @@ HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt APPEND_HISTORY
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt inc_append_history                                       # save commands are added to the history immediately, otherwise only when shell exits.
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
