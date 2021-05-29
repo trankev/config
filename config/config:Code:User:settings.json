@@ -71,5 +71,12 @@
         "**/*.egg-info": true
     },
     "python.languageServer": "Pylance",
-    "python.analysis.completeFunctionParens": true
+    "python.analysis.completeFunctionParens": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "plantuml.server": "https://www.plantuml.com/plantuml"
 }
