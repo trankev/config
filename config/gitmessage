@@ -1,0 +1,13 @@
+# <type>[(<scope>)]: <description>
+# type can be: fix, feat, build, chore, ci, docs, style, refactor, perf, test
+# append "!" to mark a breaking change (e.g. "refactor!: Drop support for Node6")
+# 50 characters ##################################
+
+# [optional body]
+# 72 characters ########################################################
+
+# [optional footer(s)]
+# Should respect git trailer convention (e.g. "Signed-By: someone", "Fixes #INFRA-1556")
+# Exception for breaking change: "BREAKING-CHANGE: <description>"
+
+# More information: https://www.conventionalcommits.org/

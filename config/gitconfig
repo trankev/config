@@ -95,5 +95,9 @@
   required = true
 [submodule]
 	recurse = true
+
+[commit]
+	template = /home/ktran/.gitmessage
+
 [init]
 	defaultBranch = main

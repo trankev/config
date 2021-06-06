@@ -78,5 +78,10 @@
             "filenamePattern": "*.ipynb"
         }
     ],
+<<<<<<< Updated upstream
     "plantuml.server": "https://www.plantuml.com/plantuml"
+=======
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "markdown.preview.scrollEditorWithPreview": false
+>>>>>>> Stashed changes
 }
