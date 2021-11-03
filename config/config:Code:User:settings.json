@@ -29,7 +29,6 @@
     "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "rust.showOutput": true,
-    "window.zoomLevel": -1,
     "editor.wordWrap": "on",
     "python.formatting.yapfArgs": [
         "--style",
@@ -72,16 +71,17 @@
     },
     "python.languageServer": "Pylance",
     "python.analysis.completeFunctionParens": true,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-<<<<<<< Updated upstream
-    "plantuml.server": "https://www.plantuml.com/plantuml"
-=======
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "plantuml.server": "https://www.plantuml.com/plantuml",
-    "markdown.preview.scrollEditorWithPreview": false
->>>>>>> Stashed changes
+    "markdown.preview.scrollEditorWithPreview": false,
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "markdown.preview.scrollEditorWithPreview": false,
+    "workbench.startupEditor": "none",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "window.zoomLevel": -1
 }

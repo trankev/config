@@ -100,3 +100,4 @@ __pycache__/
 
 # java
 .factorypath
+**/plantuml-images/
