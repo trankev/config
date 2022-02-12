@@ -79,15 +79,10 @@ __pycache__/
 
 
 # build folder
-**/target/
-**/build/
-**/_build/
-**/_static/
 *.pid
 *.sqlite*
 **/core
 !**/core/
-/dist/
 
 # Terraform
 **/.terraform/
