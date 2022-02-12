@@ -77,7 +77,7 @@
   sslVerify = false
 
 [pull]
-	rebase = preserve
+	rebase = merges
 
 [rebase]
   autosquash = true
