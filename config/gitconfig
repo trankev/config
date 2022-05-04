@@ -21,24 +21,19 @@
   ci = commit
   cia = commit --amend --no-edit
   co = checkout
-  cl = clone
+  cl = clone --recurse-submodules
   br = branch -avv --format='%(color:red)%(objectname:short)%(color:reset) %(color:yellow)%(refname:short)%(color:reset) %(contents:subject) (%(color:green)%(committerdate:relative) by %(authorname)%(color:reset))'
   tags = log --oneline --decorate --tags --no-walk
 
-
-
   difff = diff --staged
-  ad = add -A
+  ad = add --all
   addd = add --patch
   pushf = push --force-with-lease
   sub = submodule
   subup = submodule update --init --recursive
-  subpull = submodule foreach git pull origin master --recurse-submodules=yes
-  subco = submodule foreach git checkout master
   lg = log -n 15 --abbrev-commit --no-merges
   lgg = log --graph --pretty=format:'%Cred%h%Creset %s%Cred%d%Creset %Cgreen(%cr by %cN)%Creset'
   re = remote -vv
-  amend = commit --amend -C HEAD
   rc = rebase --continue
   rs = rebase --skip
   ra = rebase --abort
@@ -95,9 +90,11 @@
   required = true
 [submodule]
 	recurse = true
+	fetchJobs = 8
 
 [commit]
-	template = /home/ktran/.gitmessage
+	template = ~/.gitmessage
 
 [init]
 	defaultBranch = main
+	templateDir = ~/.git-template
