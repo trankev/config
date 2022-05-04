@@ -13,7 +13,6 @@
     "editor.cursorBlinking": "solid",
     "editor.mouseWheelZoom": true,
     "editor.renderControlCharacters": true,
-    "editor.renderIndentGuides": true,
     "debug.inlineValues": true,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
@@ -22,13 +21,12 @@
     "vim.statusBarColorControl": true,
     "vim.visualstar": true,
     "vim.foldfix": true,
-    "python.promptToInstallJupyter": false,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
-    "python.linting.lintOnTextChange": false,
     "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "rust.showOutput": true,
+    "window.zoomLevel": -1,
     "editor.wordWrap": "on",
     "python.formatting.yapfArgs": [
         "--style",
@@ -37,31 +35,15 @@
     "python.venvPath": "\"~/.pyenv\":\"~/.cache/pypoetry/virtualenvs\"",
     "git.enableSmartCommit": true,
     "files.insertFinalNewline": true,
-    "sync.gist": "fd929755cf49e21339d0f781a2fee477",
-    "sync.lastUpload": "2018-07-28T16:02:14.028Z",
-    "sync.autoDownload": true,
-    "sync.autoUpload": true,
-    "sync.lastDownload": "2018-07-08T12:14:49.262Z",
-    "sync.forceDownload": false,
-    "sync.anonymousGist": false,
-    "sync.host": "",
-    "sync.pathPrefix": "",
-    "sync.quietSync": false,
-    "sync.askGistName": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "sync.removeExtensions": true,
-    "sync.syncExtensions": true,
-    "rust.mode": "legacy",
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",
         "statusBar.noFolderBackground": "#005f5f",
         "statusBar.debuggingBackground": "#005f5f"
     },
-    "terminal.integrated.rendererType": "dom",
-    "python.jediEnabled": false,
     "python.linting.pylintEnabled": false,
     "files.exclude": {
         "**/__pycache__": true,
@@ -76,12 +58,23 @@
     },
     "plantuml.server": "https://www.plantuml.com/plantuml",
     "markdown.preview.scrollEditorWithPreview": false,
-    "plantuml.server": "https://www.plantuml.com/plantuml",
-    "markdown.preview.scrollEditorWithPreview": false,
-    "workbench.startupEditor": "none",
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "window.zoomLevel": -1
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.editor.enablePreview": false,
+    "rust-analyzer.assist.allowMergingIntoGlobImports": false,
+    "rust-analyzer.assist.importGranularity": "item",
+    "editor.formatOnSave": true,
+    "rust-analyzer.rustfmt.enableRangeFormatting": true,
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.inlayHints.parameterHints": false,
+    "workbench.startupEditor": "none",
+    "[vue]": {
+        "editor.tabSize": 2
+    }
 }
