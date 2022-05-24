@@ -35,7 +35,7 @@
 	path = config/pyenv
 	url = https://github.com/yyuu/pyenv.git
 [submodule "config/pyenv:plugins:pyenv-virtualenv"]
-	path = config/pyenv:plugins:pyenv-virtualenv
+	path = config/pyenv__plugins__pyenv-virtualenv
 	url = https://github.com/yyuu/pyenv-virtualenv.git
 [submodule "config/vim/bundle/neomake"]
 	path = config/vim/bundle/neomake
@@ -56,7 +56,7 @@
 	path = config/vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule "config/nodenv:plugins:node-build"]
-	path = config/nodenv:plugins:node-build
+	path = config/nodenv__plugins__node-build
 	url = https://github.com/nodenv/node-build.git
 [submodule "playbooks/library/external_modules/ansible-aur"]
 	path = playbooks/library/external_modules/ansible-aur
