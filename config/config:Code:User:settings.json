@@ -2,7 +2,7 @@
 {
     "editor.cursorStyle": "block",
     "files.autoSave": "afterDelay",
-    "editor.tabCompletion": true,
+    "editor.tabCompletion": "onlySnippets",
     "editor.minimap.maxColumn": 100,
     "workbench.colorTheme": "Monokai",
     "editor.renderWhitespace": "boundary",
@@ -26,7 +26,6 @@
     "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "rust.showOutput": true,
-    "window.zoomLevel": -1,
     "editor.wordWrap": "on",
     "python.formatting.yapfArgs": [
         "--style",
@@ -67,14 +66,21 @@
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.editor.enablePreview": false,
-    "rust-analyzer.assist.allowMergingIntoGlobImports": false,
-    "rust-analyzer.assist.importGranularity": "item",
     "editor.formatOnSave": true,
-    "rust-analyzer.rustfmt.enableRangeFormatting": true,
-    "rust-analyzer.inlayHints.typeHints": false,
-    "rust-analyzer.inlayHints.parameterHints": false,
     "workbench.startupEditor": "none",
     "[vue]": {
-        "editor.tabSize": 2
-    }
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.autoReveal": "focusNoScroll",
+    "rust-analyzer.imports.merge.glob": false,
+    "rust-analyzer.imports.granularity.group": "item",
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+    "explorer.openEditors.visible": 0,
+    "rust-analyzer.imports.prefix": "crate",
+    "window.zoomLevel": -1
 }
