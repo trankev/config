@@ -82,5 +82,9 @@
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,
     "explorer.openEditors.visible": 0,
     "rust-analyzer.imports.prefix": "crate",
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "go.toolsManagement.autoUpdate": true
 }
