@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":automergeMinor",
+    ":automergeDigest",
+    ":automergePr",
+    ":automergeRequireAllStatusChecks",
+    "group:recommended",
+    "docker:enableMajor"
+  ],
+  "git-submodules": {
+    "enabled": true
+  }
+}
