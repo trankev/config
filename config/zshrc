@@ -7,8 +7,16 @@
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+declare -a zsh_plugins=(
+  "/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
+  "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+)
+for filename in ${zsh_plugins[@]}; do
+  if [ -f "${filename}" ]; then
+    source "${filename}"
+  fi
+done
 
 #====================================================================
 # Prompt
