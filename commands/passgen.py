@@ -1,4 +1,5 @@
 import argparse
+
 import pathlib
 import secrets
 import typing
@@ -6,11 +7,12 @@ import typing
 DICTIONARY_FOLDER = pathlib.Path("/usr/share/dict")
 DICTIONARIES = [
     DICTIONARY_FOLDER / "french",
-    DICTIONARY_FOLDER / "catalan",
-    DICTIONARY_FOLDER / "german",
-    DICTIONARY_FOLDER / "british",
-    DICTIONARY_FOLDER / "italian",
-    DICTIONARY_FOLDER / "finnish",
+    # DICTIONARY_FOLDER / "catalan",
+    DICTIONARY_FOLDER / "ngerman",
+    DICTIONARY_FOLDER / "british-english",
+    # DICTIONARY_FOLDER / "italian",
+    DICTIONARY_FOLDER / "spanish",
+    # DICTIONARY_FOLDER / "finnish",
 ]
 PADDING_CHARACTERS = "0123456789!@#$%&_+-=[]{}|\\/?<>"
 
